@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Apple Design Tokens — using full CSS color values */
+  --primary: #0066cc;
+  --primary-focus: #0071e3;
+  --primary-on-dark: #2997ff;
+  
+  --ink: #1d1d1f;
+  --body-on-dark: #ffffff;
+  --body-muted: #cccccc;
+  --ink-muted-80: #333333;
+  --ink-muted-48: #7a7a7a;
+  
+  --divider-soft: #f0f0f0;
+  --hairline: #e0e0e0;
+  
+  --canvas: #ffffff;
+  --canvas-parchment: #f5f5f7;
+  --surface-pearl: #fafafc;
+  
+  --surface-tile-1: #272729;
+  --surface-tile-2: #2a2a2c;
+  --surface-tile-3: #252527;
+  --surface-black: #000000;
+  --surface-chip-translucent: #d2d2d7;
+
+  /* Status Colors */
+  --vc-green: #1a8c3c;
+  --vc-amber: #e6820a;
+  --vc-red: #cc2200;
+}
+
+* {
+  border-color: var(--hairline);
+}
+
+body {
+  background-color: var(--canvas-parchment);
+  color: var(--ink);
+  font-family: 'SF Pro Text', system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.47;
+  letter-spacing: -0.022em; /* ~ -0.374px at 17px */
+}
+
+/* Typography Classes */
+.font-sf-display {
+  font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+}
+
+.typography-hero-display {
+  font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.28px;
+}
+
+.typography-display-lg {
+  font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.typography-display-md {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+}
+
+.typography-lead {
+  font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0.196px;
+}
+
+.typography-tagline {
+  font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.19;
+  letter-spacing: 0.231px;
+}
+
+.typography-body-strong {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.374px;
+}
+
+.typography-body {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+}
+
+.typography-caption {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: -0.224px;
+}
+
+.typography-caption-strong {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: -0.224px;
+}
+
+.typography-button-utility {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: -0.224px;
+}
+
+.typography-nav-link {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.12px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--canvas-parchment); }
+::-webkit-scrollbar-thumb { background: var(--hairline); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-muted-48); }
+
+/* Components */
+.button-primary {
+  background-color: var(--primary);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 11px 22px;
+  transition: transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.button-primary:hover {
+  filter: brightness(1.1);
+}
+.button-primary:active {
+  transform: scale(0.95);
+}
+.button-primary:focus-visible {
+  outline: 2px solid var(--primary-focus);
+  outline-offset: 2px;
+}
+.button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-secondary-pill {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  font-size: 17px;
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 11px 22px;
+  transition: transform 0.1s ease, background-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.button-secondary-pill:hover {
+  background-color: rgba(0, 102, 204, 0.05);
+}
+.button-secondary-pill:active {
+  transform: scale(0.95);
+}
+
+.button-dark-utility {
+  background-color: var(--ink);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 8px;
+  padding: 8px 15px;
+  transition: transform 0.1s ease, opacity 0.15s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.button-dark-utility:hover {
+  opacity: 0.85;
+}
+.button-dark-utility:active {
+  transform: scale(0.95);
+}
+
+.store-utility-card {
+  background-color: var(--canvas);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.product-tile-light {
+  background-color: var(--canvas);
+  color: var(--ink);
+  padding: 80px;
+}
+
+.product-tile-parchment {
+  background-color: var(--canvas-parchment);
+  color: var(--ink);
+  padding: 80px;
+}
+
+/* Clock status colors */
+.clock-green { color: var(--vc-green); }
+.clock-amber { color: var(--vc-amber); }
+.clock-red { color: var(--vc-red); }
+.clock-paid { color: var(--primary); }
+.clock-excluded { color: var(--ink-muted-48); }
+
+/* Table styling */
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.data-table th {
+  text-align: left;
+  padding: 12px 16px;
+  color: var(--ink-muted-48);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--hairline);
+  background-color: var(--surface-pearl);
+}
+.data-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--ink);
+}
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+.data-table tr:hover td {
+  background-color: var(--canvas-parchment);
+  transition: background-color 0.1s ease;
+}
+
+/* Text link */
+.text-link {
+  color: var(--primary);
+  background: transparent;
+  cursor: pointer;
+}
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* Upload zone */
+.upload-zone {
+  border: 1px dashed var(--ink-muted-48);
+  border-radius: 18px;
+  background-color: var(--canvas);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.upload-zone:hover, .upload-zone.drag-active {
+  border-color: var(--primary);
+  background-color: var(--surface-pearl);
+}
+
+/* Citation badge */
+.citation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-muted-48);
+}
+
+/* Apple Drop Shadow for Product Imagery */
+.product-shadow {
+  box-shadow: rgba(0, 0, 0, 0.22) 3px 5px 30px 0;
+}
+
+/* Typography fine-print */
+.typography-fine-print {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.12px;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.3s ease forwards; }
